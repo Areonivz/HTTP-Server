@@ -1,0 +1,477 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #1a1a2e;
+    color: #eee;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+}
+
+/* Left Panel */
+.left-panel {
+    width: 400px;
+    background: #16213e;
+    border-right: 2px solid #0f3460;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.panel-header {
+    background: #0f3460;
+    padding: 20px;
+    border-bottom: 2px solid #e94560;
+}
+
+.panel-header h2 {
+    color: #e94560;
+    margin-bottom: 15px;
+    font-size: 1.5rem;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #a0a0a0;
+    font-size: 0.9rem;
+}
+
+.input-group input[type="text"],
+.input-group input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #0f3460;
+    border-radius: 5px;
+    background: #1a1a2e;
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+    margin: 5px 0;
+}
+
+.btn-primary {
+    background: #e94560;
+    color: white;
+    width: 100%;
+}
+
+.btn-primary:hover {
+    background: #ff6b6b;
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background: #0f3460;
+    color: white;
+}
+
+.btn-secondary:hover {
+    background: #1a4a7a;
+}
+
+.mode-toggle {
+    display: flex;
+    gap: 10px;
+    margin: 15px 0;
+}
+
+.mode-btn {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid #0f3460;
+    background: transparent;
+    color: #a0a0a0;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s;
+}
+
+.mode-btn.active {
+    background: #e94560;
+    color: white;
+    border-color: #e94560;
+}
+
+.filter-section {
+    padding: 10px 20px;
+    background: #1a1a2e;
+    border-bottom: 1px solid #0f3460;
+}
+
+.filter-group {
+    margin-bottom: 10px;
+}
+
+.filter-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #a0a0a0;
+    font-size: 0.85rem;
+}
+
+.filter-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #0f3460;
+    border-radius: 5px;
+    background: #16213e;
+    color: #fff;
+    font-size: 0.9rem;
+}
+
+.player-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 10px;
+}
+
+.player-item {
+    padding: 12px;
+    margin: 5px 0;
+    background: #1a1a2e;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-left: 4px solid transparent;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.player-item:hover {
+    background: #0f3460;
+    transform: translateX(5px);
+}
+
+.player-item.active {
+    border-left-color: #e94560;
+    background: #0f3460;
+}
+
+.player-bib {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #e94560, #ff6b6b);
+    color: white;
+    min-width: 50px;
+    height: 50px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.3rem;
+    box-shadow: 0 2px 8px rgba(233, 69, 96, 0.4);
+    border: 2px solid #fff;
+}
+
+.player-bib.no-bib {
+    background: linear-gradient(135deg, #6c757d, #868e96);
+    font-size: 0.7rem;
+    text-align: center;
+    padding: 5px;
+}
+
+.player-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.player-name {
+    font-weight: 600;
+    font-size: 1rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.player-details {
+    font-size: 0.8rem;
+    color: #a0a0a0;
+    margin-top: 2px;
+}
+
+.player-position {
+    display: inline-block;
+    background: #0f3460;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-right: 5px;
+    font-size: 0.75rem;
+}
+
+.player-stats-summary {
+    font-size: 0.8rem;
+    color: #00d26a;
+    margin-top: 5px;
+    font-weight: 600;
+}
+
+/* Right Panel */
+.right-panel {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    overflow: hidden;
+}
+
+.game-info {
+    background: #16213e;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.current-game {
+    font-size: 1.2rem;
+    color: #e94560;
+}
+
+.current-player-display {
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.player-bib-large {
+    background: linear-gradient(135deg, #e94560, #ff6b6b);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border: 2px solid #fff;
+}
+
+.field-container {
+    flex: 1;
+    background: #16213e;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#goalField {
+    width: 100%;
+    height: 100%;
+    max-width: 800px;
+    max-height: 600px;
+}
+
+.zone {
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.zone:hover {
+    opacity: 0.8;
+    filter: brightness(1.2);
+}
+
+.zone.selected {
+    opacity: 1 !important;
+    filter: brightness(1.3) !important;
+    stroke: #fff !important;
+    stroke-width: 3 !important;
+}
+
+.zone-label {
+    font-size: 12px;
+    font-weight: bold;
+    pointer-events: none;
+    text-anchor: middle;
+    fill: white;
+    text-shadow: 1px 1px 2px black;
+}
+
+.zone-stats {
+    font-size: 10px;
+    pointer-events: none;
+    text-anchor: middle;
+    fill: #ffff00;
+}
+
+.controls {
+    background: #16213e;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.control-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.action-btn {
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn-goal {
+    background: #00d26a;
+    color: white;
+}
+
+.btn-goal:hover {
+    background: #00ff80;
+    transform: scale(1.05);
+}
+
+.btn-miss {
+    background: #ff4757;
+    color: white;
+}
+
+.btn-miss:hover {
+    background: #ff6b81;
+    transform: scale(1.05);
+}
+
+.btn-save {
+    background: #3742fa;
+    color: white;
+}
+
+.btn-save:hover {
+    background: #5352ed;
+    transform: scale(1.05);
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 15px 0;
+    padding: 10px;
+    background: #0f3460;
+    border-radius: 5px;
+}
+
+.checkbox-group input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.checkbox-group label {
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1a2e;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #0f3460;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #e94560;
+}
+
+.export-section {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid #0f3460;
+}
+
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #00d26a;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    display: none;
+    z-index: 1000;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+.sample-data-btn {
+    background: #3742fa;
+    color: white;
+    margin-top: 10px;
+}
+
+.sample-data-btn:hover {
+    background: #5352ed;
+}
+
+.zone-indicator {
+    background: #0f3460;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    text-align: center;
+    font-weight: 600;
+    color: #e94560;
+}
